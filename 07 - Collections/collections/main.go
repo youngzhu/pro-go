@@ -8,6 +8,12 @@ func main() {
 	//    fmt.Println(index, char)
 	//}
 
+	// array
 	//arrayValues()
-	comparing()
+	//comparing()
+
+	// slice
+	//appendPure()
+	//appendWithEnoughCapacity()
+	createFromArray()
 }
