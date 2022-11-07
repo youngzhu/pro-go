@@ -94,3 +94,35 @@ func swapPointers(first, second *int) {
 	*second = temp
 	fmt.Println("After swap:", *first, *second)
 }
+
+// defer
+// 在函数return之前执行
+// 同一个函数里，后面的defer先执行
+func Example_defer() {
+	products := map[string]float64{
+		"Kayak":      275,
+		"Lifejacket": 48.95,
+	}
+
+	_, total := calTotalPrice(products)
+	fmt.Println("Total:", total)
+
+	// Output:
+	// Function started
+	//Function about to return
+	//Second defer call
+	//First defer call
+	//Total: 323.95
+}
+
+func calTotalPrice(products map[string]float64) (count int, total float64) {
+	fmt.Println("Function started")
+	defer fmt.Println("First defer call")
+	count = len(products)
+	for _, price := range products {
+		total += price
+	}
+	defer fmt.Println("Second defer call")
+	fmt.Println("Function about to return")
+	return
+}
