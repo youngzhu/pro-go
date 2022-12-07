@@ -1,0 +1,7 @@
+{{ layout "store_layout.html" }}
+
+{{ range .Products }}
+    <div>
+        {{ .ID }}, {{ .Name }}, {{ printf "$%.2f" .Price }}, {{ .CategoryName }}
+    </div>
+{{ end }}
